@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/action_definition.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/effects/block.tres" id="2_effect"]
+[ext_resource type="Resource" path="res://data/conditions/fight_1.tres" id="3_condition"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"guard"
+display_name = "Guard"
+effects = Array[Resource]([ExtResource("2_effect")])
+perfect_block_conditions = Array[Resource]([ExtResource("3_condition")])
+is_held = true
+block_angle_degrees = 110.0
+perfect_block_window = 0.18

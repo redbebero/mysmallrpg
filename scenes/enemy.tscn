@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_enemy"]
+
+[sub_resource type="CapsuleMesh" id="BodyMesh"]
+height = 2.0
+radius = 0.55
+
+[sub_resource type="CapsuleShape3D" id="BodyShape"]
+height = 2.0
+radius = 0.55
+
+[sub_resource type="StandardMaterial3D" id="BodyMaterial"]
+albedo_color = Color(1, 1, 1, 1)
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_enemy")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("BodyMesh")
+material_override = SubResource("BodyMaterial")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BodyShape")

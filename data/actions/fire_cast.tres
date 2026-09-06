@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/action_definition.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/effects/fire_projectile.tres" id="2_effect"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"fire_cast"
+display_name = "Fire Bolt"
+effects = Array[Resource]([ExtResource("2_effect")])
+mana_cost = 20.0
+cooldown = 0.8
+range = 48.0

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/enemy_attack_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"goblin_heavy_swing"
+display_name = "Heavy Swing"
+damage = 18.0
+range = 2.0
+windup = 1.15
+active_time = 0.2
+recovery = 1.1
+stagger_duration = 0.8
+tags = Array[StringName]([&"enemy", &"melee", &"heavy"])

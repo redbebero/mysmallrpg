@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/equipment_definition.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/actions/fire_cast.tres" id="2_action"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"fire_scroll"
+display_name = "Fire Scroll"
+tags = Array[StringName]([&"equipment", &"scroll", &"magic", &"fire", &"ranged"])
+compatible_slots = Array[StringName]([&"primary", &"secondary"])
+action = ExtResource("2_action")

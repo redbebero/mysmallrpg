@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/enemy_attack_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"slime_bump"
+display_name = "Slime Bump"
+damage = 8.0
+range = 1.6
+windup = 0.75
+active_time = 0.15
+recovery = 0.8
+tags = Array[StringName]([&"enemy", &"melee"])

@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/stats.gd" id="2_stats"]
+[ext_resource type="Script" path="res://scripts/progression.gd" id="3_progression"]
+[ext_resource type="Script" path="res://scripts/action_executor.gd" id="4_executor"]
+[ext_resource type="Script" path="res://scripts/equipment_controller.gd" id="5_equipment"]
+
+[sub_resource type="CapsuleShape3D" id="PlayerShape"]
+radius = 0.42
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("PlayerShape")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(0, 0.65, 0)
+current = true
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("2_stats")
+
+[node name="Progression" type="Node" parent="."]
+script = ExtResource("3_progression")
+
+[node name="ActionExecutor" type="Node" parent="."]
+script = ExtResource("4_executor")
+
+[node name="EquipmentController" type="Node" parent="."]
+script = ExtResource("5_equipment")

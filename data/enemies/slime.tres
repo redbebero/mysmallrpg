@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/enemy_definition.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/attacks/slime_bump.tres" id="2_attack"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"slime"
+display_name = "Slime"
+tags = Array[StringName]([&"enemy", &"slime", &"hostile"])
+max_health = 42.0
+move_speed = 2.0
+spawn_position = Vector3(-3, 1, -6)
+display_color = Color(0.25, 0.8, 0.35, 1)
+attacks = Array[Resource]([ExtResource("2_attack")])

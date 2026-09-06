@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/action_definition.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/effects/sword_damage.tres" id="2_effect"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"melee_strike"
+display_name = "Melee Strike"
+effects = Array[Resource]([ExtResource("2_effect")])
+windup = 0.12
+active_time = 0.12
+recovery_time = 0.42
+cooldown = 0.15
+range = 3.0
