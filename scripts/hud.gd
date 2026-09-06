@@ -98,7 +98,8 @@ func _refresh() -> void:
 		return
 	var stats: Stats = player.get_node("Stats")
 	var progression: Progression = player.get_node("Progression")
-	stats_label.text = "HP %.0f/%.0f\nMana %.0f/%.0f\nFight Mastery %d" % [stats.health, stats.max_health, stats.mana, stats.max_mana, progression.get_level(&"fight")]
+	var inventory: Inventory = player.get_node("Inventory")
+	stats_label.text = "HP %.0f/%.0f\nMana %.0f/%.0f\nFight %d  Mining %d\nIron Ore %d" % [stats.health, stats.max_health, stats.mana, stats.max_mana, progression.get_level(&"fight"), progression.get_level(&"mining"), inventory.get_quantity(&"iron_ore")]
 	loadout_label.text = "Primary: %s\nSecondary: %s" % [equipment.primary.display_name, equipment.secondary.display_name]
 
 func _show_message(text: String) -> void:

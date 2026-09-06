@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/recipe_definition.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/cost_definition.gd" id="2_cost_script"]
+[ext_resource type="Resource" path="res://data/rewards/iron_ingot.tres" id="3_item_reward"]
+[ext_resource type="Resource" path="res://data/rewards/craft_mastery.tres" id="4_mastery_reward"]
+
+[sub_resource type="Resource" id="Cost_iron_ore"]
+script = ExtResource("2_cost_script")
+cost_type = "item"
+target_id = &"iron_ore"
+amount = 2
+
+[resource]
+script = ExtResource("1_script")
+id = &"iron_ingot"
+display_name = "Iron Ingot"
+costs = Array[Resource]([SubResource("Cost_iron_ore")])
+rewards = Array[Resource]([ExtResource("3_item_reward"), ExtResource("4_mastery_reward")])

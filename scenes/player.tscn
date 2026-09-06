@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_player"]
 [ext_resource type="Script" path="res://scripts/stats.gd" id="2_stats"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/action_executor.gd" id="4_executor"]
 [ext_resource type="Script" path="res://scripts/equipment_controller.gd" id="5_equipment"]
 [ext_resource type="Script" path="res://scripts/combat_controller.gd" id="6_combat"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="7_inventory"]
 
 [sub_resource type="CapsuleShape3D" id="PlayerShape"]
 radius = 0.42
@@ -35,3 +36,6 @@ script = ExtResource("5_equipment")
 
 [node name="CombatController" type="Node" parent="."]
 script = ExtResource("6_combat")
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("7_inventory")

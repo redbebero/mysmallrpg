@@ -57,18 +57,19 @@ func _physics_process(delta: float) -> void:
 		velocity.y = minf(velocity.y, 0.0)
 	move_and_slide()
 
-func _interact() -> void:
+func get_interaction_target(max_range: float = 3.0) -> Node:
 	if camera == null:
-		return
+		return null
 	var origin := camera.global_position
-	var target := origin + -camera.global_transform.basis.z * 3.0
+	var target := origin + -camera.global_transform.basis.z * max_range
 	var query := PhysicsRayQueryParameters3D.create(origin, target)
 	query.exclude = [self]
 	var hit := get_world_3d().direct_space_state.intersect_ray(query)
-	if hit.is_empty():
-		message_changed.emit("Nothing to interact with")
-		return
-	if hit.collider.has_method("interact"):
-		hit.collider.interact(self)
+	return hit.get("collider") as Node if not hit.is_empty() else null
+
+func _interact() -> void:
+	var target := get_interaction_target()
+	if target != null and target.has_method("interact"):
+		target.interact(self)
 	else:
 		message_changed.emit("Nothing to interact with")

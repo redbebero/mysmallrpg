@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/action_definition.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/effects/gather_ore.tres" id="2_effect"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"gather_ore"
+display_name = "Gather Ore"
+effects = Array[Resource]([ExtResource("2_effect")])
+requires_target = true
+cooldown = 0.4
+range = 3.0

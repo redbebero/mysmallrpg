@@ -42,6 +42,12 @@ func _release_slot(slot: StringName) -> void:
 func get_equipment(slot: StringName) -> EquipmentDefinition:
 	return primary if slot == &"primary" else secondary
 
+func find_with_tag(tag: StringName) -> EquipmentDefinition:
+	for equipment in [primary, secondary]:
+		if equipment != null and equipment.tags.has(tag):
+			return equipment
+	return null
+
 func equip(slot: StringName, equipment: EquipmentDefinition) -> bool:
 	if equipment == null or not equipment.fits_slot(slot):
 		return false

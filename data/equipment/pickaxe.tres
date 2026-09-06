@@ -1,14 +1,12 @@
 [gd_resource type="Resource" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/equipment_definition.gd" id="1_script"]
-[ext_resource type="Resource" path="res://data/actions/melee_strike.tres" id="2_action"]
+[ext_resource type="Resource" path="res://data/actions/gather_ore.tres" id="2_action"]
 
 [resource]
 script = ExtResource("1_script")
-id = &"sword"
-display_name = "Sword"
-tags = Array[StringName]([&"equipment", &"weapon", &"melee", &"sword", &"physical"])
+id = &"pickaxe"
+display_name = "Pickaxe"
+tags = Array[StringName]([&"equipment", &"tool", &"gather_tool", &"mining"])
 compatible_slots = Array[StringName]([&"primary", &"secondary"])
 action = ExtResource("2_action")
-visual_asset_id = &"prototype_sword"
-visual_socket = &"mainHand"

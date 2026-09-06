@@ -33,3 +33,17 @@ static func progressions() -> Array[ProgressionDefinition]:
 		if resource is ProgressionDefinition:
 			result.append(resource)
 	return result
+
+static func ores() -> Array[OreDefinition]:
+	var result: Array[OreDefinition] = []
+	for resource in _load_resources("res://data/ores"):
+		if resource is OreDefinition:
+			result.append(resource)
+	return result
+
+static func recipes() -> Array[RecipeDefinition]:
+	var result: Array[RecipeDefinition] = []
+	for resource in _load_resources("res://data/recipes"):
+		if resource is RecipeDefinition:
+			result.append(resource)
+	return result

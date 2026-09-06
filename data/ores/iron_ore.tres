@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/ore_definition.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/rewards/iron_ore.tres" id="2_item"]
+[ext_resource type="Resource" path="res://data/rewards/mining_mastery.tres" id="3_mastery"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"iron_ore"
+display_name = "Iron Ore"
+tags = Array[StringName]([&"ore", &"resource", &"metal"])
+rewards = Array[Resource]([ExtResource("2_item"), ExtResource("3_mastery")])

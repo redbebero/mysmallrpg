@@ -1,0 +1,9 @@
+{
+  "profileId": "quaternius-humanoid-v1",
+  "roles": {
+    "mainHand": "hand_r",
+    "offHand": "hand_l"
+  },
+  "discoveredBones": ["root", "pelvis", "spine_01", "Head", "hand_l", "hand_r"],
+  "source": "GLB inspection; gameplay uses roles, not these names"
+}

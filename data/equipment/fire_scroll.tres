@@ -10,3 +10,5 @@ display_name = "Fire Scroll"
 tags = Array[StringName]([&"equipment", &"scroll", &"magic", &"fire", &"ranged"])
 compatible_slots = Array[StringName]([&"primary", &"secondary"])
 action = ExtResource("2_action")
+visual_asset_id = &"prototype_scroll"
+visual_socket = &"mainHand"

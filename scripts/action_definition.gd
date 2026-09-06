@@ -12,6 +12,7 @@ extends Resource
 @export var active_time: float = 0.1
 @export var recovery_time: float = 0.0
 @export var range: float = 3.0
+@export var requires_target: bool = false
 @export var is_held: bool = false
 @export var block_angle_degrees: float = 110.0
 @export var perfect_block_window: float = 0.18

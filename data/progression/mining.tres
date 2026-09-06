@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/progression_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"mining"
+mastery_name = &"mining"
+display_name = "Mining Mastery"
+starting_level = 0
+unlocks = Array[Resource]([])

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/ore_node.gd" id="1_ore"]
+
+[sub_resource type="StandardMaterial3D" id="OreMaterial"]
+albedo_color = Color(0.35, 0.45, 0.55, 1)
+metallic = 0.65
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="OreMesh"]
+size = Vector3(1.3, 1.4, 1.3)
+
+[sub_resource type="BoxShape3D" id="OreShape"]
+size = Vector3(1.3, 1.4, 1.3)
+
+[node name="OreNode" type="StaticBody3D" groups=["ore_nodes"]]
+script = ExtResource("1_ore")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("OreMesh")
+material_override = SubResource("OreMaterial")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("OreShape")
