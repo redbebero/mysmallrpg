@@ -1,6 +1,8 @@
 class_name ProgressionDefinition
 extends Resource
 
-@export var mastery_name: StringName = &"fight"
+@export var id: StringName
+@export var mastery_name: StringName
+@export var display_name: String = "Mastery"
 @export var starting_level: int = 0
-@export var unlocks: Dictionary = {&"perfect_block": 1, &"combo_system": 2, &"perfect_dodge": 3}
+@export var unlocks: Array[UnlockDefinition] = []

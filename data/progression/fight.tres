@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/progression_definition.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/unlock_definition.gd" id="2_unlock_script"]
+
+[sub_resource type="Resource" id="Unlock_perfect_block"]
+script = ExtResource("2_unlock_script")
+id = &"perfect_block"
+required_level = 1
+
+[resource]
+script = ExtResource("1_script")
+id = &"fight"
+mastery_name = &"fight"
+display_name = "Fight Mastery"
+starting_level = 0
+unlocks = Array[Resource]([SubResource("Unlock_perfect_block")])

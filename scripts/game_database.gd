@@ -27,9 +27,9 @@ static func enemies() -> Array[EnemyDefinition]:
 			result.append(resource)
 	return result
 
-static func progression() -> ProgressionDefinition:
-	var definition := ProgressionDefinition.new()
-	definition.mastery_name = &"fight"
-	definition.starting_level = 0
-	definition.unlocks = {&"perfect_block": 1, &"combo_system": 2, &"perfect_dodge": 3}
-	return definition
+static func progressions() -> Array[ProgressionDefinition]:
+	var result: Array[ProgressionDefinition] = []
+	for resource in _load_resources("res://data/progression"):
+		if resource is ProgressionDefinition:
+			result.append(resource)
+	return result

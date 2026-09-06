@@ -10,6 +10,7 @@ extends CharacterBody3D
 var health := 50.0
 var target: PlayerController
 var attacks: Array[EnemyAttackDefinition] = []
+var rewards: Array[RewardDefinition] = []
 var state := "approach"
 var state_time := 0.0
 var attack_index := 0
@@ -27,6 +28,7 @@ func setup(player: PlayerController, definition: EnemyDefinition) -> void:
 	max_health = definition.max_health
 	move_speed = definition.move_speed
 	attacks = definition.attacks
+	rewards = definition.rewards
 	health = max_health
 	body_mesh = get_node_or_null("Body")
 	if body_mesh != null and body_mesh.material_override is StandardMaterial3D:
@@ -52,7 +54,9 @@ func _physics_process(delta: float) -> void:
 				state = "active"
 				state_time = 0.0
 				set_warning(false)
-				target.receive_attack(current_attack.damage, self)
+				var combat := target.get_node_or_null("CombatController")
+				if combat != null:
+					combat.receive_attack(current_attack.damage, self)
 		"active":
 			velocity = Vector3.ZERO
 			if state_time >= current_attack.active_time:
@@ -98,9 +102,8 @@ func set_warning(active: bool) -> void:
 func take_damage(amount: float, _attacker: Node = null) -> void:
 	health = maxf(0.0, health - amount)
 	if health <= 0.0:
-		var progression := target.get_node_or_null("Progression") if target != null else null
-		if progression != null:
-			progression.add_fight_mastery(1)
+		if target != null:
+			RewardExecutor.execute(rewards, target)
 		queue_free()
 
 func stagger(duration: float) -> void:

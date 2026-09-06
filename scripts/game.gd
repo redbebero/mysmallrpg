@@ -10,7 +10,8 @@ func _ready() -> void:
 	player = get_node("Player") as PlayerController
 	var equipment := player.get_node("EquipmentController") as EquipmentController
 	var executor := player.get_node("ActionExecutor") as ActionExecutor
-	player.get_node("Progression").definition = GameDatabase.progression()
+	var progression := player.get_node("Progression") as Progression
+	progression.setup(GameDatabase.progressions())
 	_configure_loadout(equipment)
 	player.setup(equipment, executor)
 	equipment.setup(executor, player)

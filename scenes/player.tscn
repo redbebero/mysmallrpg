@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://scripts/progression.gd" id="3_progression"]
 [ext_resource type="Script" path="res://scripts/action_executor.gd" id="4_executor"]
 [ext_resource type="Script" path="res://scripts/equipment_controller.gd" id="5_equipment"]
+[ext_resource type="Script" path="res://scripts/combat_controller.gd" id="6_combat"]
 
 [sub_resource type="CapsuleShape3D" id="PlayerShape"]
 radius = 0.42
@@ -31,3 +32,6 @@ script = ExtResource("4_executor")
 
 [node name="EquipmentController" type="Node" parent="."]
 script = ExtResource("5_equipment")
+
+[node name="CombatController" type="Node" parent="."]
+script = ExtResource("6_combat")

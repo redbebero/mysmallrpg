@@ -9,3 +9,4 @@ extends Resource
 @export var spawn_position: Vector3
 @export var display_color: Color = Color.WHITE
 @export var attacks: Array[EnemyAttackDefinition] = []
+@export var rewards: Array[RewardDefinition] = []
