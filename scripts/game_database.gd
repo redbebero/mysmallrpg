@@ -41,6 +41,20 @@ static func ores() -> Array[OreDefinition]:
 			result.append(resource)
 	return result
 
+static func jobs() -> Array[JobDefinition]:
+	var result: Array[JobDefinition] = []
+	for resource in _load_resources("res://data/jobs"):
+		if resource is JobDefinition:
+			result.append(resource)
+	return result
+
+static func prices() -> Array[PriceDefinition]:
+	var result: Array[PriceDefinition] = []
+	for resource in _load_resources("res://data/prices"):
+		if resource is PriceDefinition:
+			result.append(resource)
+	return result
+
 static func recipes() -> Array[RecipeDefinition]:
 	var result: Array[RecipeDefinition] = []
 	for resource in _load_resources("res://data/recipes"):

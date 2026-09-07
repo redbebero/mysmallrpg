@@ -18,6 +18,8 @@ func setup(player_node: PlayerController, equipment_node: EquipmentController, a
 	equipment.loadout_changed.connect(_refresh)
 	player.get_node("Stats").changed.connect(_refresh)
 	player.get_node("Progression").changed.connect(_refresh)
+	player.get_node("Inventory").changed.connect(_refresh)
+	player.get_node("Wallet").changed.connect(_refresh)
 	_refresh()
 
 func _build() -> void:
@@ -99,7 +101,8 @@ func _refresh() -> void:
 	var stats: Stats = player.get_node("Stats")
 	var progression: Progression = player.get_node("Progression")
 	var inventory: Inventory = player.get_node("Inventory")
-	stats_label.text = "HP %.0f/%.0f\nMana %.0f/%.0f\nFight %d  Mining %d\nIron Ore %d" % [stats.health, stats.max_health, stats.mana, stats.max_mana, progression.get_level(&"fight"), progression.get_level(&"mining"), inventory.get_quantity(&"iron_ore")]
+	var wallet: Wallet = player.get_node("Wallet")
+	stats_label.text = "HP %.0f/%.0f\nMana %.0f/%.0f\nGold %d\nFight %d  Mining %d\nIron Ore %d\nIron Ingot %d" % [stats.health, stats.max_health, stats.mana, stats.max_mana, wallet.gold, progression.get_level(&"fight"), progression.get_level(&"mining"), inventory.get_quantity(&"iron_ore"), inventory.get_quantity(&"iron_ingot")]
 	loadout_label.text = "Primary: %s\nSecondary: %s" % [equipment.primary.display_name, equipment.secondary.display_name]
 
 func _show_message(text: String) -> void:

@@ -11,6 +11,11 @@ static func execute(rewards: Array[RewardDefinition], recipient: Node) -> void:
 				if progression != null and progression.has_method("add_mastery"):
 					progression.add_mastery(reward.target_id, reward.amount)
 			"item":
-				var inventory := recipient.get_node_or_null("Inventory")
-				if inventory != null and inventory.has_method("add_item"):
+				var inventory := _inventory(recipient)
+				if inventory != null:
 					inventory.add_item(reward.target_id, reward.amount)
+
+static func _inventory(recipient: Node) -> Inventory:
+	if recipient is Inventory:
+		return recipient
+	return recipient.get_node_or_null("Inventory") as Inventory

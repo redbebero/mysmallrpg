@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_game"]
 [ext_resource type="PackedScene" path="res://scenes/map.tscn" id="2_map"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="4_enemy"]
 [ext_resource type="PackedScene" path="res://scenes/ore_node.tscn" id="5_ore"]
 [ext_resource type="PackedScene" path="res://scenes/forge.tscn" id="6_forge"]
+[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="7_npc"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="8_inventory"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_game")
@@ -33,3 +35,18 @@ definition_id = &"iron_ore"
 
 [node name="Forge" parent="." instance=ExtResource("6_forge")]
 position = Vector3(0, 0.6, 2)
+
+[node name="EconomyInventory" type="Node" parent="."]
+script = ExtResource("8_inventory")
+
+[node name="Miner" parent="." instance=ExtResource("7_npc")]
+position = Vector3(-10, 0.9, -2)
+job_id = &"miner"
+
+[node name="Blacksmith" parent="." instance=ExtResource("7_npc")]
+position = Vector3(-8, 0.9, 4)
+job_id = &"blacksmith"
+
+[node name="Shop" parent="." instance=ExtResource("7_npc")]
+position = Vector3(10, 0.9, 4)
+price_ids = Array[StringName]([&"iron_ingot"])

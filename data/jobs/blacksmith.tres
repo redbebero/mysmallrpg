@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/job_definition.gd" id="1_job"]
+[ext_resource type="Resource" path="res://data/rewards/iron_ingot.tres" id="2_output"]
+[ext_resource type="Script" path="res://scripts/cost_definition.gd" id="3_cost"]
+
+[sub_resource type="Resource" id="Cost_iron_ore"]
+script = ExtResource("3_cost")
+target_id = &"iron_ore"
+amount = 2
+
+[resource]
+script = ExtResource("1_job")
+id = &"blacksmith"
+display_name = "Blacksmith"
+inputs = Array[Resource]([SubResource("Cost_iron_ore")])
+outputs = Array[Resource]([ExtResource("2_output")])
+work_time = 30.0

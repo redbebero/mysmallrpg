@@ -9,7 +9,7 @@ func can_pay(actor: Node) -> bool:
 	if amount <= 0:
 		return true
 	if cost_type == "item":
-		var inventory := actor.get_node_or_null("Inventory")
+		var inventory := _inventory(actor)
 		return inventory != null and inventory.has_item(target_id, amount)
 	return false
 
@@ -17,5 +17,11 @@ func pay(actor: Node) -> bool:
 	if not can_pay(actor):
 		return false
 	if cost_type == "item":
-		return actor.get_node("Inventory").remove_item(target_id, amount)
+		var inventory := _inventory(actor)
+		return inventory != null and inventory.remove_item(target_id, amount)
 	return false
+
+func _inventory(actor: Node) -> Inventory:
+	if actor is Inventory:
+		return actor
+	return actor.get_node_or_null("Inventory") as Inventory
